@@ -1,0 +1,52 @@
+﻿@using System.Web.Mvc.Html
+@model CherwellTriangles.ViewModels.ISetViewModel
+@{
+    ViewBag.Title = "Initialise";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <h2>Get Co-ords</h2>
+
+        <div class="form-group">
+            Letter @Html.DropDownList("letters", Model.Letters, new { @class = "ref-control col-md-2" })
+            Number @Html.DropDownList("numbers", Model.Numbers, new { @class = "ref-control col-md-2" })
+        </div>
+    </div>
+    <div class="col-md-5">
+        <h2>Get Ref</h2>
+
+        <p>Right angle</p>
+        <div class="form-group">
+            x @Html.TextBox("v1x", "", new { @class = "coords-control col-md-2" })
+            y @Html.TextBox("v1y", "", new { @class = "coords-control col-md-2" })
+        </div>
+        <p>Top Left</p>
+        <div class="form-group">
+            x @Html.TextBox("v2x", "", new { @class = "coords-control col-md-2" })
+            y @Html.TextBox("v2y", "", new { @class = "coords-control col-md-2" })
+        </div>
+        @*<p>Bottom Right</p>
+        <div class="form-group">
+            x @Html.TextBox("v3x", "", new { @class = "coords-control col-md-2" })
+            y @Html.TextBox("v3y", "", new { @class = "coords-control col-md-2" })
+        </div>*@
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="getCoords()">Get</button>
+        <div id="stringResult" ></div>
+    </div>
+    <div class="col-md-5">
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="getRef()">Get</button>
+        <div id="stringCoords" ></div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div clas="col-md-2">
+        <img id="imageResult" alt="Triangle image" />
+    </div>
+</div>
